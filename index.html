@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CrescerDigital - Agência de Marketing Digital B2B. Geramos 50+ leads qualificados/mês com estratégia comprovada.">
+    <meta name="keywords" content="marketing digital, agência digital, geração de leads, consultoria, B2B">
+    <title>CrescerDigital - Agência de Marketing Digital | De 0 para 50+ Leads/Mês</title>
+    
+    <style>
+        /* DESIGN SYSTEM & VARIÁVEIS */
+        :root {
+            --color-primary: #1ea896;
+            --color-primary-dark: #157a6a;
+            --color-primary-light: #20c8aa;
+            --color-secondary: #ff6b35;
+            --color-secondary-light: #ff8856;
+            --color-text: #1f2937;
+            --color-text-light: #6b7280;
+            --color-bg: #ffffff;
+            --color-bg-light: #f9fafb;
+            --color-border: #e5e7eb;
+            --color-success: #10b981;
+            --color-danger: #ef4444;
+            
+            --spacing-xs: 8px;
+            --spacing-sm: 12px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            --spacing-3xl: 64px;
+            
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+            
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+            
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            --font-family-mono: 'Courier New', monospace;
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* TIPOGRAFIA */
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-text);
+        }
+
+        h1 { font-size: 48px; }
+        h2 { font-size: 36px; }
+        h3 { font-size: 24px; }
+        h4 { font-size: 20px; }
+        h5 { font-size: 16px; }
+        h6 { font-size: 14px; }
+
+        p {
+            margin-bottom: var(--spacing-md);
+            font-size: 16px;
+            color: var(--color-text-light);
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        /* CONTAINER & LAYOUT */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .row.reverse { direction: rtl; }
+        .row.reverse > * { direction: ltr; }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: var(--radius-lg);
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(30, 168, 150, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 168, 150, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-secondary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background-color: #ff5a1a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        /* FORMS */
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--color-text);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            font-family: var(--font-family);
+            font-size: 16px;
+            transition: var(--transition);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(30, 168, 150, 0.1);
+        }
+
+        .form-error {
+            color: var(--color-danger);
+            font-size: 13px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .form-group.error input,
+        .form-group.error select {
+            border-color: var(--color-danger);
+        }
+
+        .form-group.error .form-error {
+            display: block;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 4px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+            font-size: 14px;
+            flex: 1;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: var(--spacing-3xl) 0;
+        }
+
+        section.bg-light {
+            background-color: var(--color-bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title h2 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* HEADER & NAV */
+        header {
+            padding: var(--spacing-lg) 0;
+            background-color: white;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--color-text);
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #1ea896 0%, #20c8aa 100%);
+            color: white;
+            padding: var(--spacing-3xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            color: white;
+            margin-bottom: var(--spacing-md);
+            font-size: 52px;
+            line-height: 1.15;
+        }
+
+        .hero .hero-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: var(--spacing-xl);
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-2xl);
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* CARDS */
+        .card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--color-border);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: var(--spacing-md);
+            color: white;
+        }
+
+        /* FEATURES GRID */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-xl);
+        }
+
+        /* TESTIMONIALS */
+        .testimonial {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            border-left: 4px solid var(--color-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testimonial-text {
+            margin-bottom: var(--spacing-lg);
+            font-size: 16px;
+            font-style: italic;
+            color: var(--color-text);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            margin-bottom: 2px;
+            font-size: 14px;
+        }
+
+        .author-info p {
+            margin: 0;
+            font-size: 12px;
+            color: var(--color-text-light);
+        }
+
+        /* PROCESS STEPS */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        .step h4 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .step p {
+            font-size: 14px;
+        }
+
+        .step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -var(--spacing-lg);
+            top: 28px;
+            font-size: 24px;
+            color: var(--color-primary);
+        }
+
+        /* FORM MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            animation: slideUp 0.3s ease-out;
+            position: relative;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--color-text-light);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: var(--color-text);
+        }
+
+        .modal h2 {
+            margin-bottom: var(--spacing-lg);
+            padding-right: var(--spacing-xl);
+        }
+
+        .form-submit-btn {
+            width: 100%;
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: var(--spacing-2xl) var(--spacing-lg);
+        }
+
+        .form-success.active {
+            display: block;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto var(--spacing-lg);
+            color: white;
+        }
+
+        .success-message h3 {
+            color: var(--color-success);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--color-text);
+            color: white;
+            padding: var(--spacing-2xl) 0;
+            margin-top: var(--spacing-3xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-section p, .footer-section a {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--spacing-lg);
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            font-size: 18px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        /* UTILITIES */
+        .text-center { text-align: center; }
+        .mt-lg { margin-top: var(--spacing-lg); }
+        .mb-lg { margin-bottom: var(--spacing-lg); }
+
+        /* ANIMATIONS */
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 { font-size: 32px; }
+            h2 { font-size: 24px; }
+            h3 { font-size: 20px; }
+            
+            .container { padding: 0 var(--spacing-md); }
+            
+            .row {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            section {
+                padding: var(--spacing-2xl) 0;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps .step:not(:last-child)::after {
+                display: none;
+            }
+
+            .nav-links {
+                gap: var(--spacing-md);
+                font-size: 12px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .modal {
+                padding: var(--spacing-xl);
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 24px; }
+            h2 { font-size: 20px; }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .stat-number {
+                font-size: 24px;
+            }
+
+            .container { padding: 0 var(--spacing-md); }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    📈 CrescerDigital
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#processo">Processo</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><button class="btn btn-secondary" onclick="openForm()">Consultoria Grátis</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <h1>Agência de Marketing Digital que Gera Leads</h1>
+                <p class="hero-subtitle">Estratégia + Execução + Resultados. De 0 a 50+ leads qualificados/mês</p>
+                
+                <div class="hero-cta">
+                    <button class="btn btn-secondary" onclick="openForm()">Agende Consultoria Grátis</button>
+                    <button class="btn btn-outline">Veja Nossos Casos</button>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Projetos Concluídos</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Leads Gerados</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">Avaliação Média</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAIN POINTS SECTION -->
+    <section id="sobre">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sua Empresa Enfrenta Esses Desafios?</h2>
+                <p>Você não está sozinho. 87% das pequenas e médias empresas enfrentam estes problemas.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="card fade-in-up">
+                    <div class="card-icon">🌐</div>
+                    <h3>Pouco Tráfego no Site</h3>
+                    <p>Seu site fica escondido no Google. Poucos visitantes chegam até você e a concorrência vai levando seus clientes.</p>
+                </div>
+
+                <div class="card fade-in-up">
+                    <div class="card-icon">📧</div>
+                    <h3>Poucos Leads de Qualidade</h3>
+                    <p>Quando alguém chega, não converte. Faltam estratégia de persuasão e proposta clara de valor.</p>
+                </div>
+
+                <div class="card fade-in-up">
+                    <div class="card-icon">❓</div>
+                    <h3>Não Sabe por Onde Começar</h3>
+                    <p>Marketing digital é complexo. Não sabe qual ferramenta usar, por onde investir ou como medir resultado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUÇÃO SECTION -->
+    <section id="beneficios" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div>
+                    <h2>Solução Comprovada em 3 Passos</h2>
+                    <p>Nós já ajudamos 15+ empresas a crescer de 0 para 50+ leads/mês. Aqui está nossa fórmula:</p>
+
+                    <div style="margin-top: var(--spacing-2xl);">
+                        <h4>✅ Auditoria Completa</h4>
+                        <p>Analisamos seu site, concorrentes e estratégia atual. Identificamos oportunidades.</p>
+
+                        <h4 style="margin-top: var(--spacing-lg);">✅ Estratégia Personalizada</h4>
+                        <p>Criamos um plano customizado com metas, timeline e investimento claro.</p>
+
+                        <h4 style="margin-top: var(--spacing-lg);">✅ Implementação + Resultados</h4>
+                        <p>Executamos, acompanhamos e garantimos que cada real investido gere resultado.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card" style="background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); color: white; border: none;">
+                        <h3 style="color: white;">Benefícios que Você Terá</h3>
+                        
+                        <div style="margin-top: var(--spacing-lg);">
+                            <p style="color: rgba(255,255,255,0.95); margin-bottom: var(--spacing-lg);">
+                                <strong>📈 30% Mais Tráfego</strong> em 90 dias
+                            </p>
+                            <p style="color: rgba(255,255,255,0.95); margin-bottom: var(--spacing-lg);">
+                                <strong>50+ Leads/Mês</strong> qualificados
+                            </p>
+                            <p style="color: rgba(255,255,255,0.95); margin-bottom: var(--spacing-lg);">
+                                <strong>ROI Comprovado</strong> rastreado em tempo real
+                            </p>
+                            <p style="color: rgba(255,255,255,0.95); margin-bottom: var(--spacing-lg);">
+                                <strong>Equipe Dedicada</strong> 24/7 para seu projeto
+                            </p>
+                            <p style="color: rgba(255,255,255,0.95);">
+                                <strong>Suporte Contínuo</strong> com otimizações mensais
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESSO SECTION -->
+    <section id="processo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Como Funciona</h2>
+                <p>Processo simples, transparente e focado em resultados</p>
+            </div>
+
+            <div class="steps">
+                <div class="step fade-in-up">
+                    <div class="step-number">1</div>
+                    <h4>Consultoria Gratuita</h4>
+                    <p>30 minutos para entender seu negócio, desafios e oportunidades</p>
+                </div>
+
+                <div class="step fade-in-up">
+                    <div class="step-number">2</div>
+                    <h4>Auditoria Completa</h4>
+                    <p>Análise profunda de site, SEO, concorrentes e mercado</p>
+                </div>
+
+                <div class="step fade-in-up">
+                    <div class="step-number">3</div>
+                    <h4>Plano Personalizado</h4>
+                    <p>Estratégia customizada com metas, timeline e investimento claro</p>
+                </div>
+
+                <div class="step fade-in-up">
+                    <div class="step-number">4</div>
+                    <h4>Implementação</h4>
+                    <p>Execução, acompanhamento mensal e otimizações contínuas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="depoimentos" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>O Que Nossos Clientes Dizem</h2>
+                <p>Resultado real de empresas que confiaram em nós</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="testimonial fade-in-up">
+                    <p class="testimonial-text">"A CrescerDigital transformou nosso negócio. Saímos de 0 para 30+ leads/mês em 3 meses. Recomendo muito!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Marina Silva</h4>
+                            <p>Diretora, TechStart Solutions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in-up">
+                    <p class="testimonial-text">"Profissionalismo de ponta. Entregaram exatamente o que prometeram com transparência total. Continuamos trabalhando com eles."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Carlos Mendes</h4>
+                            <p>Fundador, Consultoria Pro Business</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in-up">
+                    <p class="testimonial-text">"Não é só website bonito. Eles geram negócio real. Nosso ROI foi 5x superior às outras agências que contratamos."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Amanda Costa</h4>
+                            <p>CEO, E-commerce Digital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS SECTION -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <h2>Por Que Escolher CrescerDigital?</h2>
+                    <p style="margin-bottom: var(--spacing-xl);">Somos diferentes porque focamos em resultados, não em vanidades.</p>
+
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: var(--spacing-lg); display: flex; gap: var(--spacing-md);">
+                            <span style="font-size: 24px;">🏆</span>
+                            <div>
+                                <strong>Google Partner Certificado</strong>
+                                <p style="margin: 4px 0 0 0; font-size: 14px;">Equipe certificada com acesso a recursos premium do Google</p>
+                            </div>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg); display: flex; gap: var(--spacing-md);">
+                            <span style="font-size: 24px;">💰</span>
+                            <div>
+                                <strong>Garantia de Resultados</strong>
+                                <p style="margin: 4px 0 0 0; font-size: 14px;">Se não gerarmos 20+ leads em 90 dias, devolvemos 50% do investimento</p>
+                            </div>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg); display: flex; gap: var(--spacing-md);">
+                            <span style="font-size: 24px;">📊</span>
+                            <div>
+                                <strong>Dashboard em Tempo Real</strong>
+                                <p style="margin: 4px 0 0 0; font-size: 14px;">Acompanhe todos os números: tráfego, leads, conversão, ROI</p>
+                            </div>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg); display: flex; gap: var(--spacing-md);">
+                            <span style="font-size: 24px;">👥</span>
+                            <div>
+                                <strong>Equipe Dedicada 24/7</strong>
+                                <p style="margin: 4px 0 0 0; font-size: 14px;">Seu próprio time de especialistas, não agência grande impessoal</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center;">
+                    <div class="card" style="text-align: left;">
+                        <h3 style="text-align: center; margin-bottom: var(--spacing-lg); color: var(--color-primary);">Pronto para Começar?</h3>
+                        
+                        <div style="background: var(--color-bg-light); padding: var(--spacing-lg); border-radius: var(--radius-md); margin-bottom: var(--spacing-lg); text-align: center;">
+                            <p style="font-size: 13px; color: var(--color-text-light);">CONSULTORIA INICIAL</p>
+                            <p style="font-size: 28px; font-weight: 700; color: var(--color-primary); margin: var(--spacing-sm) 0;">Grátis</p>
+                            <p style="font-size: 13px; color: var(--color-text-light);">30 minutos com especialista</p>
+                        </div>
+
+                        <div style="border-top: 1px solid var(--color-border); padding-top: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+                            <p style="font-size: 14px; margin-bottom: var(--spacing-md);">
+                                ✓ Diagnóstico da sua empresa
+                            </p>
+                            <p style="font-size: 14px; margin-bottom: var(--spacing-md);">
+                                ✓ Identificação de oportunidades
+                            </p>
+                            <p style="font-size: 14px);">
+                                ✓ Plano de ação (sem compromisso)
+                            </p>
+                        </div>
+
+                        <button class="btn btn-primary form-submit-btn" onclick="openForm()">Agendar Agora</button>
+                        <p style="font-size: 12px; color: var(--color-text-light); margin-top: var(--spacing-md); text-align: center;">Resposta em até 2 horas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CrescerDigital</h4>
+                    <p>Agência de Marketing Digital focada em gerar leads reais para sua empresa crescer.</p>
+                    <div class="social-links">
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="LinkedIn">💼</a>
+                        <a href="#" title="WhatsApp">💬</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Links Úteis</h4>
+                    <a href="#sobre">Sobre Nós</a>
+                    <a href="#beneficios">Serviços</a>
+                    <a href="#processo">Como Funciona</a>
+                    <a href="#depoimentos">Depoimentos</a>
+                    <a href="#">Blog</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>📧 contato@crescerdigital.com</p>
+                    <p>📱 (11) 99999-9999</p>
+                    <p>Consultoria Grátis de 30 min</p>
+                    <a href="#">Agende Agora →</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 CrescerDigital. Todos os direitos reservados.</p>
+                <p style="margin-top: var(--spacing-sm);">
+                    <a href="#">Política de Privacidade</a> • 
+                    <a href="#">Termos de Uso</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FORM MODAL -->
+    <div class="modal-overlay" id="formModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeForm()">✕</button>
+            
+            <div class="form-wrapper">
+                <h2>Consultoria Gratuita</h2>
+                <p style="margin-bottom: var(--spacing-lg);">30 minutos com nosso especialista. Sem compromisso.</p>
+
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Nome Completo *</label>
+                        <input type="text" id="name" name="name" required>
+                        <div class="form-error">Por favor, preencha seu nome</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="form-error">Email inválido</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefone/WhatsApp *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required>
+                        <div class="form-error">Por favor, preencha seu telefone</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Empresa *</label>
+                        <input type="text" id="company" name="company" required>
+                        <div class="form-error">Por favor, preencha o nome da empresa</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="challenge">Seu Maior Desafio *</label>
+                        <select id="challenge" name="challenge" required>
+                            <option value="">Selecione uma opção...</option>
+                            <option value="traffic">Pouco tráfego no site</option>
+                            <option value="leads">Poucos leads chegando</option>
+                            <option value="conversion">Baixa taxa de conversão</option>
+                            <option value="strategy">Não tenho estratégia definida</option>
+                            <option value="other">Outro</option>
+                        </select>
+                        <div class="form-error">Por favor, selecione uma opção</div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">
+                            Concordo que meus dados sejam utilizados para análise, proposta comercial e comunicação sobre serviços. Não compartilharemos com terceiros. 
+                            <a href="#">Leia nossa Política de Privacidade</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary form-submit-btn">
+                        Agendar Consultoria Grátis
+                    </button>
+
+                    <p style="font-size: 12px; color: var(--color-text-light); text-align: center; margin-top: var(--spacing-md);">
+                        Resposta em até 2 horas por WhatsApp ou Email
+                    </p>
+                </form>
+            </div>
+
+            <div class="form-success" id="formSuccess">
+                <div class="success-icon">✓</div>
+                <div class="success-message">
+                    <h3>Consultoria Agendada com Sucesso!</h3>
+                    <p style="margin: var(--spacing-md) 0 0 0;">Você receberá um WhatsApp nos próximos minutos confirmando data e hora.</p>
+                    <button class="btn btn-primary" style="margin-top: var(--spacing-lg);" onclick="closeForm()">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // RATE LIMITING - Proteção contra spam
+        function isRateLimited() {
+            const lastSubmit = localStorage.getItem('lastFormSubmit');
+            if (!lastSubmit) return false;
+            
+            const timeSince = Date.now() - parseInt(lastSubmit);
+            return timeSince < 3600000; // 1 hora em ms
+        }
+
+        // FORM SUBMISSION
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Rate limiting
+            if (isRateLimited()) {
+                alert('Por favor, aguarde 1 hora antes de enviar outro formulário.');
+                return;
+            }
+
+            // Validação front-end
+            const form = document.getElementById('contactForm');
+            const formGroups = form.querySelectorAll('.form-group');
+            let isValid = true;
+
+            formGroups.forEach(group => {
+                const input = group.querySelector('input, select, textarea');
+                if (!input.value.trim()) {
+                    group.classList.add('error');
+                    isValid = false;
+                } else {
+                    // Validação de email
+                    if (input.type === 'email') {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(input.value)) {
+                            group.classList.add('error');
+                            isValid = false;
+                        } else {
+                            group.classList.remove('error');
+                        }
+                    } else {
+                        group.classList.remove('error');
+                    }
+                }
+            });
+
+            // Validar checkbox LGPD
+            const privacyCheckbox = document.getElementById('privacy');
+            if (!privacyCheckbox.checked) {
+                alert('Por favor, concorde com a Política de Privacidade.');
+                isValid = false;
+            }
+
+            if (!isValid) return;
+
+            // Coletar dados
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                challenge: document.getElementById('challenge').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Mostrar sucesso (na prática, enviar via backend)
+            console.log('Dados do formulário:', formData);
+            
+            // Salvar no localStorage como backup
+            localStorage.setItem('formData_' + Date.now(), JSON.stringify(formData));
+            localStorage.setItem('lastFormSubmit', Date.now().toString());
+
+            // Mostrar mensagem de sucesso
+            document.querySelector('.form-wrapper').style.display = 'none';
+            document.getElementById('formSuccess').classList.add('active');
+
+            // Em produção, enviar para servidor com FormSubmit ou Firebase
+            // sendFormToBackend(formData);
+        }
+
+        // MODAL FUNCTIONS
+        function openForm() {
+            document.getElementById('formModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeForm() {
+            document.getElementById('formModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+            document.querySelector('.form-wrapper').style.display = 'block';
+            document.getElementById('formSuccess').classList.remove('active');
+        }
+
+        // Fechar modal ao clicar fora
+        document.getElementById('formModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeForm();
+            }
+        });
+
+        // OBSERVAR ELEMENTOS PARA ANIMAÇÃO
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // REMOVER ERROS ENQUANTO DIGITA
+        document.querySelectorAll('input, select, textarea').forEach(field => {
+            field.addEventListener('input', function() {
+                this.parentElement.classList.remove('error');
+            });
+        });
+
+        // ANALYTICS PLACEHOLDER
+        console.log('Landing Page Carregada - Página de Consultoria CrescerDigital');
+    </script>
+</body>
+</html>
